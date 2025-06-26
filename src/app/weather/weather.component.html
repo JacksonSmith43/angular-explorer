@@ -1,0 +1,14 @@
+<form (ngSubmit)="getWeather(enteredCity.value)">
+    <label for="city">Choose a city:</label>
+    <input id="city" name="city" placeholder="Vienna" #enteredCity>
+
+    <button type="submit">Get Weather</button>
+</form>
+
+<div class="weather">
+
+    <p>Temperature: {{temperature}}</p>
+    <p>City: {{city}}</p>
+    <p>Country: {{country}}</p>
+
+</div>

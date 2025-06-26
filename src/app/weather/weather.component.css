@@ -1,0 +1,22 @@
+form {
+    font-family: sans-serif;
+    justify-content: center;
+    display: grid;
+}
+
+.weather {
+    display: grid;
+    justify-content: center;
+}
+
+label {
+    margin-bottom: 1rem;
+}
+
+button {
+    margin-top: 1rem;
+}
+
+p {
+    font-family: sans-serif;
+}
