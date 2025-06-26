@@ -1,13 +1,17 @@
 <div class="weather-container">
-    <form (ngSubmit)="getWeather(enteredCity.value)">
+    <form (ngSubmit)="getWeather(enteredCity.value)" [formGroup]="form">
         <label for="city">Choose a city:</label>
-        <input id="city" name="city" placeholder="Vienna" #enteredCity>
+        <input id="city" name="city" placeholder="Vienna" #enteredCity [formControl]="form.controls.city">
 
         <button type="submit">Get Weather</button>
     </form>
 
     <div class="weather">
-        <p>Temperature: {{temperature}}</p>
+        <p>Temperature: {{temperature }}
+            @if(temperature){
+            °C
+            }
+        </p>
         <p>City: {{city}}</p>
         <p>Country: {{country}}</p>
         @if(icon){

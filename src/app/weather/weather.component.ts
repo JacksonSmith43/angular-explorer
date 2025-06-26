@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, DestroyRef } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { switchMap } from 'rxjs';
 import { WeatherResponse } from './weather.modal';
 
 @Component({
   selector: 'app-weather',
-  imports: [FormsModule],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.css'
 })
@@ -20,7 +20,18 @@ export class WeatherComponent {
   country = "";
   icon = "";
 
+  form = new FormGroup({
+    city: new FormControl("", {
+      validators: [Validators.minLength(2), Validators.required]
+    })
+  })
+
   getWeather(enteredCity: string) {
+
+    if (this.form.invalid) {
+      console.log("Invalid form.");
+      return;
+    }
 
     const apiKey = "fecd3090e3a68c124a4c86c90bdd06b7";
     const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${enteredCity}&limit=2&appid=${apiKey}`;
