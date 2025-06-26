@@ -1,14 +1,17 @@
-<form (ngSubmit)="getWeather(enteredCity.value)">
-    <label for="city">Choose a city:</label>
-    <input id="city" name="city" placeholder="Vienna" #enteredCity>
+<div class="weather-container">
+    <form (ngSubmit)="getWeather(enteredCity.value)">
+        <label for="city">Choose a city:</label>
+        <input id="city" name="city" placeholder="Vienna" #enteredCity>
 
-    <button type="submit">Get Weather</button>
-</form>
+        <button type="submit">Get Weather</button>
+    </form>
 
-<div class="weather">
-
-    <p>Temperature: {{temperature}}</p>
-    <p>City: {{city}}</p>
-    <p>Country: {{country}}</p>
-
+    <div class="weather">
+        <p>Temperature: {{temperature}}</p>
+        <p>City: {{city}}</p>
+        <p>Country: {{country}}</p>
+        @if(icon){
+        <img [src]="'https://openweathermap.org/img/wn/' + icon + '@2x.png'" alt="Weather icon.">
+        }
+    </div>
 </div>

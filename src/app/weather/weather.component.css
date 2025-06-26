@@ -9,6 +9,13 @@ form {
     justify-content: center;
 }
 
+.weather-container {
+    outline: 0.05rem red solid;
+    width: 15rem;
+    height: auto;
+    padding-top: 1rem;
+}
+
 label {
     margin-bottom: 1rem;
 }

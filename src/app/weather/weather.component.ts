@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, signal, inject, DestroyRef, input } from '@angular/core';
+import { Component, inject, DestroyRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { switchMap } from 'rxjs';
 import { WeatherResponse } from './weather.modal';
@@ -15,9 +15,10 @@ export class WeatherComponent {
   private http = inject(HttpClient);
   private destroyRef = inject(DestroyRef);
 
-  city = "";
   temperature?: number;
+  city = "";
   country = "";
+  icon = "";
 
   getWeather(enteredCity: string) {
 
@@ -40,11 +41,13 @@ export class WeatherComponent {
         this.city = weatherData.name;
         this.temperature = weatherData.main.temp;
         this.country = weatherData.sys.country;
+        this.icon = weatherData.weather[0].icon;
 
         console.log(weatherData);
         console.log("Temperature: ", this.temperature);
         console.log("City: ", this.city);
         console.log("Country: ", this.country);
+        console.log("Country: ", this.icon);
 
       },
       error: err => {
@@ -53,7 +56,5 @@ export class WeatherComponent {
     });
 
     this.destroyRef.onDestroy(() => subscription);
-
   }
-
 }
