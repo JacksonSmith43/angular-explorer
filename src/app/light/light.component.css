@@ -1,0 +1,10 @@
+.light-container {
+    font-family: sans-serif;
+    outline: 0.05rem solid red;
+
+    width: 15rem;
+    height: auto;
+
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+}
