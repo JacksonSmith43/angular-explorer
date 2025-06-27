@@ -1,0 +1,22 @@
+p {
+    font-family: sans-serif;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+button {
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+    margin-left: 2rem;
+}
+
+.stoppwatch-container {
+    outline: 0.05rem solid red;
+    width: 12rem;
+    height: auto;
+
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+}
